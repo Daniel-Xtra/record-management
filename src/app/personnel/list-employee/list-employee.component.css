@@ -1,0 +1,63 @@
+
+
+.table{
+	margin-top: 30px;
+    font-family: 'Nanum Myeongjo', serif;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.table-bordered td, .table-bordered th{
+	border:1px solid #cbced1
+}
+
+
+.pt-4{
+	font-size:30px;
+	font-weight: bolder;
+}
+
+body{
+    padding-left: 0%;
+}
+
+
+input,select{
+    outline:none !important;
+    box-shadow: none !important;
+    border-color: transparent;
+    border-radius: 0%; 
+    background:#f8f9fa;
+
+    box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+}
+
+label{
+    color:#1FAB89 !important;
+}
+ 
+input,select:active,input,select:focus{
+    outline:none !important;
+    box-shadow: none !important;
+    border-color: transparent;
+}
+
+input.ng-valid{
+	 border: 1px solid green;
+}
+
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+
+tr:nth-child(even) {
+    background-color: #89c69c
+    
+}
+a,h4{
+    font-family: 'Nanum Myeongjo', serif;
+    font-stretch: extra-expanded;
+    font-weight: bolder;
+}
+ 

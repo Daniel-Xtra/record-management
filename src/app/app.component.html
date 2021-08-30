@@ -1,0 +1,19 @@
+<app-landing-page *ngIf="isLoading"></app-landing-page>
+
+<app-header *ngIf="!isLoading"></app-header>
+
+<div class="container-fluid" *ngIf="!isLoading">
+
+    <div class="row">
+
+        <div class="col-md-12">
+
+            <router-outlet></router-outlet>
+
+        </div>
+
+    </div>
+    
+</div>
+
+<app-footer></app-footer>

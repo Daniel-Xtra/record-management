@@ -1,0 +1,185 @@
+ <div class="container">
+    <div class="row">
+        <div class="col-md-6 mt-3 mb-3">
+            <h4>My Profile</h4>
+        </div>
+    </div>
+    <form class="user" [formGroup]="reactiveForm">
+
+        <div class="row">
+            <div class="col-4 mb-3">Title</div>
+               <div class="col-8 mb-3">   
+                   <input type="text" 
+                    class="form-control form-control-user" 
+                    id="title"  
+                    required="true"
+                    formControlName="title"
+                    ngModel
+                   />
+               </div>
+        </div>
+
+       <div class="row">
+          <div class="col-4 mb-3">Surname</div>
+          <div class="col-8 mb-3">   
+              <input type="text" 
+              class="form-control form-control-user" 
+              id="surname" 
+               required="true" 
+               formControlName="surname"
+               ngModel
+              >
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4 mb-3">FirstName</div>
+            <div class="col-8 mb-3">   
+                <input type="text" 
+                class="form-control form-control-user" 
+                id="firstname"  
+                required="true"
+                formControlName="first_name"
+                ngModel
+                >
+            </div>
+        </div>
+
+        <div class="row">
+             <div class="col-4 mb-3">Other Name </div>
+            <div class="col-8 mb-3"> 
+                <input type="text" 
+                class="form-control form-control-user" 
+                id="OtherName"  
+                required="true" 
+                formControlName="other_name"
+                ngModel
+                >
+            </div>  
+        </div>
+
+        <div class="row">
+           <div class="col-4 mb-3">Date Of Birth</div>
+           <div class="col-8 mb-3">
+             <input type="text" 
+             class="form-control form-control-user" 
+             id="DOB"  
+             required="true" 
+             formControlName="date_of_birth"
+             ngModel
+             >
+           </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4 mb-3">Religion</div>
+            <div class="col-8 mb-3">
+             <input type="text" 
+             class="form-control form-control-user" 
+             id="religion"  
+             required="true" 
+             formControlName="religion"
+             ngModel
+             >
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-4 mb-3">Marital Status</div>
+            <div class="col-8 mb-3">
+             <input type="text" 
+             class="form-control form-control-user"
+              id="marital_status" 
+              required="true" 
+             formControlName="marital_status"
+             ngModel
+              >
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4 mb-3">Contact No.</div>
+           <div class="col-8 mb-3">
+             <input type="number" 
+             class="form-control form-control-user" 
+             id="ContactNo" 
+             required="true"
+             formControlName="phone_number"
+             ngModel
+             >
+           </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4 mb-3">Gender</div>
+            <div class="col-8 mb-3">
+           
+                <select 
+                class="form-control"
+                id="gender"
+                placeholder="Choose One"
+                formControlName="gender"
+                required="true"
+               ngModel
+                name="gender"
+                >
+  
+                <option>Male</option>
+                <option>Female</option>
+  
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+           <div class="col-4 mb-3">Email</div>
+           <div class="col-8 mb-3">
+             <input type="email" class="form-control form-control-user" 
+             id="Email" 
+             placeholder="Enter Email Address..."
+              required="true" 
+              formControlName="email"
+              ngModel
+             >
+           </div>
+        </div>
+       
+        <div class="row">
+             <div class="col-4 mb-3">Nationality</div>
+           <div class="col-8  mb-3">
+             <input type="text" 
+             class="form-control form-control-user" 
+             formControlName="nationality"
+             ngModel
+             id="nationality">
+             
+           </div>
+        </div>
+
+        <div class="row">
+             <div class="col-4 mb-3">State Of Origin</div>
+           <div class="col-8  mb-3">
+             <input type="text"
+              class="form-control form-control-user"
+               formControlName="state"
+               ngModel
+               id="state">
+           </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4 mb-3">Address</div>
+          <div class="col-8  mb-3">
+            <input type="text" 
+            class="form-control form-control-user" 
+            formControlName="address"
+            ngModel
+            id="address">
+          </div>
+       </div>
+
+         <button type="submit" class="btn btn-success">Update</button>
+    </form>
+  
+</div>
+   

@@ -1,0 +1,293 @@
+<div class="container">
+    <div class="row">
+      <div class="col mt-3">
+        <h4>Staff Details
+        <span style="float: right;"><select (change)="onTableSizeChange($event)" class="custom-select">
+          <option *ngFor="let size of tableSizes" [ngValue]="size">
+            {{ size }}
+          </option>
+        </select></span></h4>
+      </div>
+      <!-- <div class="d-flex flex-row-reverse bd-highlight mb-2"> -->
+        <!-- <div class="p-2 bd-highlight">
+          <select (change)="onTableSizeChange($event)" class="custom-select">
+            <option *ngFor="let size of tableSizes" [ngValue]="size">
+              {{ size }}
+            </option>
+          </select>
+        </div> -->
+      <!-- </div> -->
+        <table class="table table-bordered table-responsive-lg"  width="100%" *ngIf="!error">
+
+            <thead>
+              <tr>
+                <th scope="col">S/N</th>
+                <th scope="col">TITLE</th>
+                <th scope="col">SURNAME</th>
+                <th scope="col">FIRSTNAME</th>
+                <th scope="col">OTHERNAME</th>
+                <th scope="col">SEX</th>             
+                <th scope="col">EMAIL</th>
+                <th scope="col">PHONE</th>
+                <th scope="col">ADDRESS</th>
+                <th colspan="2">ACTION</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of Employee.data | paginate : {
+                itemsPerPage: tableSize,
+                currentPage: page,
+                totalItems: count
+              }; let i = index"  [class.active]="i == currentIndex">
+                <td scope="row">{{i + 1}}</td>
+                <td scope="row">{{data.title}}</td>
+                <td scope="row">{{data.surname}}</td>
+                <td scope="row">{{data.first_name}}</td>
+                <td scope="row">{{data.other_name}}</td>
+                <td scope="row">{{data.gender}}</td>
+                <td scope="row">{{data.email}}</td>
+                <td scope="row">{{data.phone_number}}</td>
+                <td scope="row">{{data.address}}</td>
+                <td scope="row"><button class="btn btn-md btn-info"  data-toggle="modal" 
+                  data-target="#ModalCenter" (click)="getEmployee(data.username)"><i class=" fa fa-edit"></i></button></td>
+                <td scope="row"><button class="btn btn-md btn-warning"><i class="fa fa-trash"></i></button></td>
+              </tr>
+          
+            </tbody>
+         
+          </table>
+  
+    </div>
+    <div class="d-flex justify-content-center">
+      <pagination-controls 
+       
+        previousLabel="Prev" 
+        nextLabel="Next" 
+        (pageChange)="onTableDataChange($event)">
+      </pagination-controls>
+    </div>
+    <div class="col-md-6 offset-md-3">
+      <p class="text-center pt-4" *ngIf="error">{{error}}</p>
+    </div>
+
+</div>
+
+<div class="col-md-8  offset-md-2">
+  <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenter" aria-hidden="true" data-backdrop="static">
+      <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="ModalCenterTitle">Edit Employee {{username}}</h4>
+            <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button> -->
+          </div>
+          <div class="modal-body">
+              <form class="user"  [formGroup]="reactiveForm">
+        
+                  <div class="container">
+      
+                    <div class="row">
+                      <!-- **Personal Information** -->
+                      <div class="col-md-12 text-center">
+                        <h3>{{username}} Information</h3>
+                      </div>
+                     
+                    <!-- **//Title**//  -->
+                      <div class="form-group col-md-4 col-sm-12">
+      
+                        <label for="title">Title</label>
+        
+                          <input
+                            type="text"
+                            id="title"
+                            placeholder="Title"
+                            class="form-control form-control-user"
+                            formControlName="title"
+                            required
+                            name="title"
+                            ngModel
+                            />
+                          
+                      </div>
+      
+                    <!-- **//Surname**// -->
+                      <div class="form-group col-md-4 col-sm-12">
+      
+                            <label for="surname">Surname</label>
+      
+      
+                              <input
+                              type="text"
+                              id="surname"
+                              placeholder="Surname"
+                              class="form-control"
+                              formControlName="surname"
+                              required
+                              name="surname"
+                              minlength="3"
+                              maxlength="20"
+                              ngModel
+                              />
+              
+                      </div>
+      
+                    <!-- **//Firstname**// -->
+                      <div class="form-group col-md-4 col-sm-12">
+      
+                            <label for="first_name">Firstname</label>
+      
+                              <input
+                              type="text"
+                              id="first_name"
+                              placeholder="firstname"
+                              class="form-control"
+                              formControlName="first_name"
+                              required
+                              name="first_name"
+                              minlength="3"
+                              maxlength="20"
+                              ngModel
+                              />
+              
+                      </div>
+      
+                    <!-- **//Othername**// -->
+                      <div class="form-group col-md-4 col-sm-12">
+      
+                            <label for="other_name">Other Name</label>
+                          
+                              <input
+                                type="text"
+                                id="other_name"
+                                placeholder="Othername"
+                                class="form-control"
+                                formControlName="other_name"
+                                required
+                                name="other_name"
+                                minlength="3"
+                                maxlength="20"
+                                ngModel
+                                />
+      
+                      </div>
+      
+                    <!-- **//Username**// -->
+                      <div class="form-group col-md-4 col-sm-12">
+            
+                            <label for="username">Username</label>
+            
+                                  <input
+                                  type="text"
+                                  id="username"
+                                  placeholder="username"
+                                  class="form-control"
+                                  formControlName="username"
+                                  name="username"
+                                  required
+                                  readonly
+                                  minlength="3"
+                                  maxlength="20"
+                                  ngModel
+                                  />
+                                
+                      </div>
+      
+
+      
+                    <!-- **//Gender**// -->
+                      <div class="form-group col-md-4 col-sm-12">
+            
+                        <label for="gender">Gender</label>
+      
+      
+                        <select 
+                        class="form-control"
+                        id="gender"
+                        placeholder="Choose One"
+                        formControlName="gender"
+                        required
+                        name="gender"
+                        ngModel
+                        >
+          
+                        <option>male</option>
+                        <option>female</option>
+          
+                        </select>
+                    
+                      </div>
+      
+                    <!-- **//Phone_number**// -->
+                      <div class="form-group col-md-4 col-sm-12">
+      
+                          <label for="phone_number">Phone Number</label>
+                               
+                            <input
+                              type="text"
+                              id="phone_number"
+                              placeholder="Your Phone Number"
+                              class="form-control"
+                              formControlName="phone_number"
+                              name="phone_number"
+                              required
+                              ngModel
+                              />
+
+                      </div>
+      
+                    <!-- **//Address**// -->
+                      <div class="form-group col-md-4 col-sm-12">
+            
+                            <label for="address">Address</label>
+      
+      
+                            <input
+                            type="text"
+                            id="address"
+                            placeholder="Your Address"
+                            class="form-control"
+                            formControlName="address"
+                            required
+                            name="address"
+                            ngModel
+                            />
+      
+                      </div>
+      
+ 
+      
+                    <!-- **//Email**// -->
+                      <div class="form-group col-md-4 col-sm-12">
+      
+                            <label for="email">E-mail</label>
+            
+                              <input
+                                type="email"
+                                id="email"
+                                placeholder="Your Email"
+                                class="form-control"
+                                formControlName="email"
+                                required
+                                name="email"
+                               ngModel
+                               />
+                               
+                      </div>    
+                        
+                    </div>
+             
+                  </div>
+            
+                </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onClose()">Close</button>
+            <button type="button" class="btn btn-primary" (click)="editEmployee()">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+

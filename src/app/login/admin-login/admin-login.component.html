@@ -1,0 +1,181 @@
+
+
+<div class="container" *ngIf="!isSuccessfull">
+
+
+       <h3>Administrator</h3>
+
+    <alert></alert>
+
+   <form *ngIf="!isLoggedIn && !forgotPassword && !requestPasswordReset" name="form" (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="input-group mb-3">
+
+        <div class="input-group-append">
+
+            <span class="input-group-text"><i class="fa fa-user"></i></span>
+
+        </div>
+
+        <input 
+            type="text" 
+            name="username" 
+            class="form-control input_user" 
+            value="" 
+            required
+            placeholder="username"
+            [(ngModel)]="form.username"
+            #username="ngModel"
+        >
+     
+    </div>
+
+    <div class="input-group mb-2">
+
+        <div class="input-group-append">
+
+            <span class="input-group-text"><i class="fa fa-key"></i></span>
+
+        </div>
+
+        <input 
+            [type]="fieldTextType ? 'text' : 'password'" 
+            name="password" 
+            class="form-control input_pass" 
+            value="" 
+            required
+            minlength="6"
+            placeholder="password"
+            [(ngModel)]="form.password"
+            #password = "ngModel"
+        >
+
+        <div class="input-group-prepend">
+
+            <span class="input-group-text b">
+
+                <i class="fa" [ngClass]="{'fa-eye-slash':!fieldTextType, 'fa-eye':fieldTextType}"
+                            (click)="toggleFieldTextType()"></i>
+
+            </span>
+
+        </div>
+
+    </div>
+ 
+    <div class="d-flex justify-content-center mt-3 login_container">
+
+        <button class="btn login_btn">Login</button>
+
+    </div>
+
+    <div class="mt-4">
+
+        <!-- <div class="d-flex justify-content-center links">
+
+            Don't have an account? <a (click)="toSignUp()" class="ml-2" style="cursor: pointer;">Sign Up</a>
+
+        </div> -->
+
+        <div class="d-flex justify-content-center links">
+
+            <a (click)="requestCode()" style="cursor: pointer;">Request Password Reset?</a>
+
+        </div>
+
+    </div>
+</form>
+
+   <form *ngIf="requestPasswordReset && !forgotPassword" name="form" (ngSubmit)="requestResetCode(e)" #e="ngForm">
+    <div class="input-group mb-3">
+
+        <div class="input-group-append">
+
+            <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+
+        </div>
+
+        <input 
+            type="text" 
+            name="email" 
+            class="form-control input_user" 
+            value="" 
+            required
+            placeholder="email"
+            [(ngModel)]="form.email"
+            #email="ngModel"
+        >
+
+    </div>
+
+    <div class="d-flex justify-content-center mt-3 login_container">
+
+        <button class="btn login_btn">Request Password Reset</button>
+
+    </div>  
+</form>
+
+   <form *ngIf="forgotPassword" name="form" (ngSubmit)="onReset(r)" #r="ngForm">
+       
+    <div class="input-group mb-3">
+
+        <div class="input-group-append">
+
+            <span class="input-group-text"><i class="fa fa-mars-double"></i></span>
+
+        </div>
+
+        <input 
+            type="text" 
+            name="code" 
+            class="form-control input_user" 
+            value="" 
+            required
+            placeholder="Password Reset Code"
+            [(ngModel)]="form.code"
+            #username="ngModel"
+        >
+
+    </div>
+
+    <div class="input-group mb-2">
+
+        <div class="input-group-append">
+
+            <span class="input-group-text"><i class="fa fa-key"></i></span>
+
+        </div>
+
+        <input 
+            type="password" 
+            name="password" 
+            class="form-control input_pass" 
+            value="" 
+            required
+            minlength="6"
+            placeholder="New Password"
+            [(ngModel)]="form.password"
+            #password = "ngModel"
+        >
+
+        <div class="input-group-prepend">
+
+            <span class="input-group-text b">
+
+                <i class="fa" [ngClass]="{'fa-eye-slash':!fieldTextType, 'fa-eye':fieldTextType}"
+                            (click)="toggleFieldTextType()"></i>
+
+            </span>
+
+        </div>
+
+    </div>
+ 
+    <div class="d-flex justify-content-center mt-3 login_container">
+
+        <button class="btn login_btn">Reset Password</button>
+
+    </div>
+</form>
+
+
+</div>

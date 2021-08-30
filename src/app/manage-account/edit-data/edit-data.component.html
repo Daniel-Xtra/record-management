@@ -1,0 +1,45 @@
+<div class="container">
+    <h3 class="text-center mt-5 mb-5">
+      Angular Basic Pagination Example
+    </h3>
+  
+    <div class="d-flex flex-row-reverse bd-highlight mb-2">
+      <div class="p-2 bd-highlight">
+        <select (change)="onTableSizeChange($event)" class="custom-select">
+          <option *ngFor="let size of tableSizes" [ngValue]="size">
+            {{ size }}
+          </option>
+        </select>
+      </div>
+    </div>
+  
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let post of Employee.data | paginate : {
+                  itemsPerPage: tableSize,
+                  currentPage: page,
+                  totalItems: count
+                };
+          let i = index" [class.active]="i == currentIndex">
+          <th scope="row">{{i + 1}}</th>
+          <td>{{post.title}}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div class="d-flex justify-content-center">
+      <pagination-controls 
+       
+        previousLabel="Prev" 
+        nextLabel="Next" 
+        (pageChange)="onTableDataChange($event)">
+      </pagination-controls>
+    </div>
+  
+  </div>

@@ -1,0 +1,544 @@
+
+<div class="container mt-4">
+
+  <div class="row">
+
+      <div class="col-md-6">
+
+       <div class="row">
+
+           <div class="col-md-12">
+              <div class="card card-1">
+                  <div class="card-body">
+                      <h3>personnal information</h3>
+                      <table class="table-responsive">
+                          <tr>
+                              <th>Title</th>
+                              <td>{{profile.data.title}}</td>
+                          </tr>
+                          <tr>
+                              <th>Surname</th>
+                              <td>{{profile.data.surname}}</td>
+                          </tr>
+                          <tr>
+                              <th>Firstname</th>
+                              <td>{{profile.data.first_name}}</td>
+                          </tr>
+                          <tr>
+                              <th>Othername</th>
+                              <td>{{profile.data.other_name}}</td>
+                          </tr>
+                          <tr>
+                              <th>Date_of_birth</th>
+                              <td>{{profile.data.date_of_birth}}</td>
+                          </tr>
+                          <tr>
+                              <th>Religion</th>
+                              <td>{{profile.data.religion}}</td>
+                          </tr>
+                          <tr>
+                              <th>Marital Status</th>
+                              <td>{{profile.data.marital_status}}</td>
+                          </tr>
+                          <!-- <tr>
+                              <th>Phone</th>
+                              <td>{{profile.data.phone_number}}</td>
+                          </tr> -->
+                          <!-- <tr>
+                              <th>Email</th>
+                              <td>{{profile.data.email}}</td>
+                          </tr> -->
+                          <tr>
+                              <th>Nationality</th>
+                              <td>{{profile.data.nationality}}</td>
+                          </tr>
+                      </table>             
+                    </div>
+              </div>
+           </div>
+
+
+           <div class="col-md-12">
+              <div class="card card-2">
+                  <div class="card-body">
+                      <h3>education</h3>
+                      <h4>MBA, OXFORD UNIVERSITY <span class="pull-right">two</span></h4>
+                      <p>2011 to 2016</p>
+                      <h4>MBA, OXFORD UNIVERSITY <span class="pull-right">two</span></h4>
+                      <p>2011 to 2016</p>
+                  </div>
+              </div>
+          </div>
+
+       </div>
+
+      </div>
+
+     <div class="col-md-6">
+         <div class="row">
+              <div class="col-md-12">
+                  <div class="card card-2">
+                      <div class="card-body">
+                          <h3>current position</h3>
+                      <table>
+                          <tr>
+                              <th>school</th>
+                              <td>profile.data.school</td>
+                          </tr>
+                              <tr>
+                              <th>department</th>
+                              <td>profile.data.department</td>
+                          </tr>
+                              <tr>
+                              <th>position</th>
+                              <td>{{profile.data.position}}</td>
+                          </tr>
+                              <tr>
+                              <th>category</th>
+                              <td>profile.data.category</td>
+                          </tr>
+                      </table>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-12">
+                  <div class="card card-1">
+                      <div class="card-body">
+                          <h3>contacts</h3>
+                          <table>
+                              <tr>
+                                  <th><i class="fa fa-user"></i></th>
+                                  <td>{{profile.data.address}}</td>
+                              </tr>
+                              <tr>
+                                  <th><i class="fa fa-phone"></i></th>
+                                  <td>{{profile.data.phone_number}}</td>
+                              </tr>
+                              <tr>
+                                  <th><i class="fa fa-envelope"></i></th>
+                                  <td>{{profile.data.email}}</td>
+                              </tr>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-12">
+                  <div class="card">
+                      <div class="card-body card-1">
+                          <h3>employee identity</h3>
+                      </div>
+                      <div class="card-body" style="background:#1fab89; color: white;">
+                          <table>
+                              <tr>
+                                  <th>Bank Name</th>
+                                  <td>8938373848586</td>
+                              </tr>
+                              <tr>
+                                  <th>Account Name</th>
+                                  <td>8938373848586</td>
+                              </tr>
+                              <tr>
+                                  <th>Account Number</th>
+                                  <td>8938373848586</td>
+                              </tr>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+         </div>
+     </div>
+
+  </div>
+
+</div>
+
+
+<div class="col-md-8  offset-md-2">
+    <div class="modal fade" #ModalCenter id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenter" aria-hidden="true" data-backdrop="static">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="ModalCenterTitle">Edit Profile</h4>
+            </div>
+            <div class="modal-body">
+                <form class="user"  [formGroup]="reactiveForm">
+          
+                    <div class="container">
+        
+                      <div class="row">
+                        <!-- **Personal Information** -->
+                        <div class="col-md-12 text-center">
+                          <h3>Personal Information</h3>
+                        </div>
+                       
+                      <!-- **//Title**//  -->
+                        <div class="form-group col-md-4 col-sm-12">
+        
+                          <label for="title">Title</label>
+          
+                            <input
+                              type="text"
+                              id="title"
+                              placeholder="Title"
+                              class="form-control form-control-user"
+                              formControlName="title"
+                              required
+                              name="title"
+                              ngModel
+                              />
+                            
+                        </div>
+        
+                      <!-- **//Surname**// -->
+                        <div class="form-group col-md-4 col-sm-12">
+        
+                              <label for="surname">Surname</label>
+        
+        
+                                <input
+                                type="text"
+                                id="surname"
+                                placeholder="Surname"
+                                class="form-control"
+                                formControlName="surname"
+                                required
+                                name="surname"
+                                minlength="3"
+                                maxlength="20"
+                                ngModel
+                                />
+                
+                        </div>
+        
+                      <!-- **//Firstname**// -->
+                        <div class="form-group col-md-4 col-sm-12">
+        
+                              <label for="first_name">Firstname</label>
+        
+                                <input
+                                type="text"
+                                id="first_name"
+                                placeholder="firstname"
+                                class="form-control"
+                                formControlName="first_name"
+                                required
+                                name="first_name"
+                                minlength="3"
+                                maxlength="20"
+                                ngModel
+                                />
+                
+                        </div>
+        
+                      <!-- **//Othername**// -->
+                        <div class="form-group col-md-4 col-sm-12">
+        
+                              <label for="other_name">Other Name</label>
+                            
+                                <input
+                                  type="text"
+                                  id="other_name"
+                                  placeholder="Othername"
+                                  class="form-control"
+                                  formControlName="other_name"
+                                  required
+                                  name="other_name"
+                                  minlength="3"
+                                  maxlength="20"
+                                  ngModel
+                                  />
+        
+                        </div>
+        
+                      <!-- **//Username**// -->
+                        <div class="form-group col-md-4 col-sm-12">
+              
+                              <label for="username">Username</label>
+              
+                                    <input
+                                    type="text"
+                                    id="username"
+                                    placeholder="username"
+                                    class="form-control"
+                                    formControlName="username"
+                                    name="username"
+                                    required
+                                    readonly
+                                    minlength="3"
+                                    maxlength="20"
+                                    ngModel
+                                    />
+                                  
+                        </div>
+        
+                      <!-- **//Password**// -->
+              
+        
+                      <!-- **//Gender**// -->
+                        <div class="form-group col-md-4 col-sm-12">
+              
+                          <label for="gender">Gender</label>
+        
+        
+                          <select 
+                          class="form-control"
+                          id="gender"
+                          placeholder="Choose One"
+                          formControlName="gender"
+                          required
+                          name="gender"
+                          ngModel
+                          >
+            
+                          <option>male</option>
+                          <option>female</option>
+            
+                          </select>
+                      
+                        </div>
+                      
+                      <!-- **//D_O_B**// -->
+                      <div class="form-group col-md-4 col-sm-12">
+                        <label for="date_of_birth">Date of birth</label>
+          
+                            <input
+                              type="date" 
+                              id="date"
+                              placeholder="Your D_O_B"
+                              class="form-control"
+                              formControlName="date_of_birth"
+                              required
+                              name="date_of_birth"
+                              minlength="6"
+                              ngModel
+                              />
+        
+                      </div>
+        
+                      <!-- **//Marital Status**// -->
+                        <div class="form-group col-md-4 col-sm-12">
+                          <label for="marital_status">Marital Status</label>
+        
+          
+                            <select 
+                            class="form-control"
+                            id="marital"
+                            placeholder="Choose One"
+                            formControlName="marital_status"
+                            required
+                            name="marital_status"
+                            ngModel
+                            >
+              
+                            <option>Single</option>
+                            <option>Married</option>
+              
+                            </select>
+          
+                        </div>
+        
+                      <!-- **//Religion**// -->
+                        <div class="form-group col-md-4 col-sm-12">
+        
+                            <label for="religion">Religion</label>
+        
+                              <input
+                                type="text"
+                                id="religion"
+                                placeholder="Your Religion"
+                                class="form-control"
+                                formControlName="religion"
+                                required
+                                name="religion"
+                                ngModel
+                                />
+              
+                        </div>
+        
+                      <!-- **//Nationality**// -->
+                        <div class="form-group col-md-4 col-sm-12">
+        
+                            <label for="nationality">Nationality</label>
+        
+            
+                              <input
+                                type="text"
+                                id="nationality"
+                                placeholder="Your Nationality"
+                                class="form-control"
+                                formControlName="nationality"
+                                required
+                                name="nationality"
+                                ngModel
+                                />
+                      
+                        </div>
+        
+                      <!-- **//State_Of_Origin**// -->
+                        <div class="form-group col-md-4 col-sm-12">
+        
+                          <label for="state">State_Of_Origin</label>
+        
+                            <select 
+                            class="form-control"
+                            id="state"
+                            placeholder="Choose One"
+                            formControlName="state"
+                            required
+                            name="state"
+                            ngModel
+                          >
+          
+                          <option *ngFor="let state of States" >{{state}}</option>
+                         
+          
+                          </select>
+        
+                        </div>
+        
+                       <!-- **//Local_Government**// -->
+                       <div class="form-group col-md-4 col-sm-12">
+        
+                        <label for="local_govt">Local_Government</label>
+        
+        
+        
+                          <input
+                            type="text"
+                            id="local_government"
+                            placeholder="Your Local_Government"
+                            class="form-control"
+                            formControlName="local_govt"
+                            required
+                            name="local_govt"
+                            ngModel
+                            />
+        
+        
+                  
+                       </div>
+        
+                      <!-- **//Phone_number**// -->
+                        <div class="form-group col-md-4 col-sm-12">
+        
+                            <label for="phone_number">Phone Number</label>
+                                 
+                              <input
+                                type="text"
+                                id="phone_number"
+                                placeholder="Your Phone Number"
+                                class="form-control"
+                                formControlName="phone_number"
+                                name="phone_number"
+                                required
+                                readonly
+                                ngModel
+                                />
+  
+                        </div>
+        
+                      <!-- **//Address**// -->
+                        <div class="form-group col-md-4 col-sm-12">
+              
+                              <label for="address">Address</label>
+        
+        
+                              <input
+                              type="text"
+                              id="address"
+                              placeholder="Your Address"
+                              class="form-control"
+                              formControlName="address"
+                              required
+                              name="address"
+                              ngModel
+                              />
+        
+                        </div>
+        
+                      <!-- **//Blood_group**// -->
+                        <div class="form-group col-md-4 col-sm-12">
+        
+                              <label for="blood_group">Blood Group</label>
+        
+        
+                              <select 
+                                class="form-control"
+                                id="blood_group"
+                                placeholder="Choose One"
+                                formControlName="blood_group"
+                                required
+                                name="blood_group"
+                                ngModel
+                              >
+              
+                              <option>O+</option>
+                              <option>O-</option>
+              
+                              </select>
+                          
+                        </div>
+                        
+                      <!-- **//Genotype**// -->
+                        <div class="form-group col-md-4 col-sm-12">
+        
+                            <label for="genotype">Genotype</label>                 
+        
+                            <select 
+                              class="form-control"
+                              id="genotype"
+                              placeholder="Choose One"
+                              formControlName="genotype"
+                              required
+                              name="genotype"
+                              ngModel
+                            >
+            
+                            <option value="AA" selected>AA</option>
+                            <option value="AS">AS</option>
+                            <option value="SS">SS</option>
+            
+                            </select>
+        
+                        </div>
+        
+                      <!-- **//Email**// -->
+                        <div class="form-group col-md-4 col-sm-12">
+        
+                              <label for="email">E-mail</label>
+              
+                                <input
+                                  type="email"
+                                  id="email"
+                                  placeholder="Your Email"
+                                  class="form-control"
+                                  formControlName="email"
+                                  required
+                                  name="email"
+                                  ngModel
+                                  readonly
+                                 />
+                                 
+                        </div>
+     
+         
+                          
+                      </div>
+               
+                    </div>
+              
+                  </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onClose()">Close</button>
+              <button type="button" class="btn btn-primary" (click)="profileEdit()">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalCenter" (click)="myProfile(username)">
+    Launch demo modal
+  </button>

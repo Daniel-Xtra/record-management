@@ -1,0 +1,43 @@
+.btn{
+	margin-top:20px;
+	background: #1FAB89;
+	height: 40px;
+	width: 100%;
+	border-radius: 20px;
+	cursor: pointer;
+	font-weight: 900;
+	transition: 0.5s;
+	box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
+	color: white !important;
+
+}
+ .one{
+	margin-top: 100px;
+	margin-bottom:100px
+}
+.container-fluid{
+	background-color:cornsilk
+}
+
+.card{
+	border-radius:5px;
+	height:80px;
+	border-left: 5px solid #1cc88a;
+}
+.card-body{
+	padding-top: 25px;
+	
+}
+a{
+	text-transform: uppercase;
+	font-weight: bold;
+	text-decoration: none;
+	color: #1cc88a;
+}
+.fa {
+	float:right;
+	color:#eaecf4
+}
+
+
+

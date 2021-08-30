@@ -1,0 +1,59 @@
+.container{
+    margin-top: 50px;
+}
+
+.media{
+    margin-bottom: 20px;
+    height:100px;
+    color:palevioletred;
+    font-weight: bold;
+    border-radius:5px;
+	box-sizing: border-box;
+	background: #ecf0f3;
+    border-left: 5px solid #1cc88a;
+    box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+    
+}
+.media-body{
+    align-self: center;
+
+}
+.media-body h5{
+    padding-left: 15px;
+}
+.media h5,.media h4{
+    font-weight: bolder;
+    font-size:medium;
+    font-family: 'Nanum Myeongjo', serif;
+ 
+} 
+
+.fa{
+    font-size:30px;
+    /* margin-left: 15px; */
+    margin-right:25px;
+}
+
+.mb-5 h5{
+    font-family: 'Sansita Swashed', cursive;
+    font-size: 30px;
+}
+/* 
+.card{
+	border-radius:5px;
+	height:100px;
+	border-left: 5px solid #1cc88a;
+}
+.card-body{
+	padding-top: 25px;
+	
+}
+a{
+	text-transform: uppercase;
+	font-weight: bold;
+	text-decoration: none;
+}
+.fa {
+	float:right;
+	color:#eaecf4
+} */

@@ -1,0 +1,645 @@
+<div class="col-md-8 offset-md-2">
+
+    <div class="card card-container">
+
+      <div class="d-flex justify-content-center form_container">
+
+          <form #f="ngForm" (ngSubmit)="onSubmit(f)" name="form">
+          
+            <div class="container">
+
+              <div class="row">
+                <!-- **Personal Information** -->
+                <div class="col-md-12 text-center">
+                  <h3>Personal Information</h3>
+                </div>
+               
+              <!-- **//Title**//  -->
+                <div class="form-group col-md-4 col-sm-12">
+
+                  <label for="title">Title</label>
+  
+                    <input
+                      type="text"
+                      id="title"
+                      placeholder="Your Title"
+                      class="form-control"
+                      [(ngModel)]="form.title"
+                      #title = "ngModel"
+                      name="title"
+                      required
+                      />
+                      <span class="text-danger"
+                      *ngIf="(title.touched || f.submitted) && title.errors?.required">
+                        Title is required
+                      </span>
+                </div>
+
+              <!-- **//Surname**// -->
+                <div class="form-group col-md-4 col-sm-12">
+
+                      <label for="surname">Surname</label>
+
+
+                        <input
+                        type="text"
+                        id="surname"
+                        placeholder="Surname"
+                        class="form-control"
+                        [(ngModel)]="form.surname"
+                        #surname="ngModel"
+                        name="surname"
+                        minlength="3"
+                        maxlength="20"
+                       />
+        
+                </div>
+
+              <!-- **//Firstname**// -->
+                <div class="form-group col-md-4 col-sm-12">
+
+                      <label for="first_name">Firstname</label>
+
+                        <input
+                        type="text"
+                        id="first_name"
+                        placeholder="firstname"
+                        class="form-control"
+                        [(ngModel)]="form.first_name"
+                        #first_name="ngModel"
+                        name="first_name"
+                        minlength="3"
+                        maxlength="20"
+                        />
+        
+                </div>
+
+              <!-- **//Othername**// -->
+                <div class="form-group col-md-4 col-sm-12">
+
+                      <label for="other_name">Other Name</label>
+                    
+                        <input
+                          type="text"
+                          id="other_name"
+                          placeholder="Othername"
+                          class="form-control"
+                          [(ngModel)]="form.other_name"
+                          #other_name="ngModel"
+                          name="other_name"
+                          minlength="3"
+                          maxlength="20"
+                          />
+
+                </div>
+
+              <!-- **//Username**// -->
+                <div class="form-group col-md-4 col-sm-12">
+      
+                      <label for="username">Username</label>
+      
+                            <input
+                            type="text"
+                            id="username"
+                            placeholder="username"
+                            class="form-control"
+                            [(ngModel)]="form.username"
+                            #username= "ngModel"
+                            required
+                            name="username"
+                            />
+                            <span class="text-danger"
+                            *ngIf="(username.touched || f.submitted) && username.errors?.required">
+                              Username is required
+                            </span>
+                            <!-- <div *ngIf="!username?.valid && (username?.dirty || username?.touched)" class="error">
+                              <div *ngIf="username.errors.required" style="color: red;">
+                                Username is required
+                              </div>
+                            </div>  -->
+                </div>
+        
+              <!-- **//Password**// -->
+                <div class="form-group col-md-4 col-sm-12">
+
+                <label for="password">Password</label>
+
+              <div class="input-group">
+
+
+                  <input
+                  [type]="fieldTextType ? 'text' : 'password'" 
+                    id="password"
+                    placeholder="Your password"
+                    class="form-control"
+                    [(ngModel)]="form.password"
+                    #password="ngModel"
+                    name="password"
+                    minlength="6"
+                    required
+                    />
+
+                  <div class="input-group-prepend">
+
+                    <span class="input-group-text b">
+
+                      <i class="fa" [ngClass]="{'fa-eye-slash':!fieldTextType, 'fa-eye':fieldTextType}"
+
+                              (click)="toggleFieldTextType()"></i>
+
+                    </span>
+
+                  </div>
+              
+              </div>
+              <span class="text-danger"
+              *ngIf="(password.touched || f.submitted) && password.errors?.required">
+                Password is required
+              </span>
+                </div> 
+
+              <!-- **//Gender**// -->
+                <div class="form-group col-md-4 col-sm-12">
+      
+                  <label for="gender">Gender</label>
+
+
+                  <select 
+                  class="form-control"
+                  id="gender"
+                  placeholder="Choose One"
+                  [(ngModel)]="form.gender"
+                  #gender="ngModel"
+                  name="gender"
+                  required
+                    >
+    
+                  <option>male</option>
+                  <option>female</option>
+    
+                  </select>
+                  <span class="text-danger"
+                  *ngIf="(gender.touched || f.submitted) && gender.errors?.required">
+                    Gender is required
+                  </span>
+                </div>
+              
+              <!-- **//D_O_B**// -->
+                <div class="form-group col-md-4 col-sm-12">
+                  <label for="date_of_birth">Date of birth</label>
+    
+                      <input
+                        type="date" 
+                        id="date"
+                        placeholder="Your D_O_B"
+                        class="form-control"
+                        [(ngModel)]="form.date_of_birth"
+                        #date_of_birth="ngModel"
+                        name="date_of_birth"
+                        minlength="6"
+                      />
+
+                </div>
+
+              <!-- **//Marital Status**// -->
+                <div class="form-group col-md-4 col-sm-12">
+                  <label for="marital_status">Marital Status</label>
+
+  
+                    <select 
+                    class="form-control"
+                    id="marital"
+                    placeholder="Choose One"
+                    [(ngModel)]="form.marital_status"
+                    #marital_status="ngModel"
+                    name="marital_status"
+                    >
+      
+                    <option>Single</option>
+                    <option>Married</option>
+      
+                    </select>
+  
+                </div>
+
+              <!-- **//Religion**// -->
+                <div class="form-group col-md-4 col-sm-12">
+
+                    <label for="religion">Religion</label>
+
+                      <input
+                        type="text"
+                        id="religion"
+                        placeholder="Your Religion"
+                        class="form-control"
+                        [(ngModel)]="form.religion"
+                        #religion="ngModel"
+                        name="religion"
+                        />
+
+              
+                </div>
+
+              <!-- **//Nationality**// -->
+                <div class="form-group col-md-4 col-sm-12">
+
+                    <label for="nationality">Nationality</label>
+
+    
+                      <input
+                        type="text"
+                        id="nationality"
+                        placeholder="Your Nationality"
+                        class="form-control"
+                        [(ngModel)]="form.nationality"
+                        #nationality="ngModel"
+                        name="nationality"
+                        />
+              
+                </div>
+
+              <!-- **//State_Of_Origin**// -->
+                <div class="form-group col-md-4 col-sm-12">
+
+                  <label for="state">State_Of_Origin</label>
+
+                    <select 
+                    class="form-control"
+                    id="state"
+                    placeholder="Choose One"
+                    [(ngModel)]="form.state"
+                    #state="ngModel"
+                    name="state"
+                  >
+  
+                  <option *ngFor="let state of States" >{{state}}</option>
+                 
+  
+                  </select>
+
+                </div>
+
+               <!-- **//Local_Government**// -->
+               <div class="form-group col-md-4 col-sm-12">
+
+                <label for="local_govt">Local_Government</label>
+
+                  <input
+                    type="text"
+                    id="local_government"
+                    placeholder="Your Local_Government"
+                    class="form-control"
+                    [(ngModel)]="form.local_govt"
+                    #local_govt="ngModel"
+                    name="local_govt"
+                    />
+               </div>
+
+              <!-- **//Phone_number**// -->
+                <div class="form-group col-md-4 col-sm-12">
+
+                    <label for="phone_number">Phone Number</label>
+                         
+                      <input
+                        type="text"
+                        id="phone_number"
+                        placeholder="Your Phone Number"
+                        class="form-control"
+                        [(ngModel)]="form.phone_number"
+                        #phone_number="ngModel"
+                        name="phone_number"
+                        required
+                        />
+                        <span class="text-danger"
+                        *ngIf="(phone_number.touched || f.submitted) && phone_number.errors?.required">
+                          Phone_number is required
+                        </span>
+                </div>
+
+              <!-- **//Address**// -->
+                <div class="form-group col-md-4 col-sm-12">
+      
+                      <label for="address">Address</label>
+                      <input
+                      type="text"
+                      id="address"
+                      placeholder="Your Address"
+                      class="form-control"
+                      [(ngModel)]="form.address"
+                      #address="ngModel"
+                      name="address"
+                      required
+
+                        />
+
+                </div>
+
+              <!-- **//Blood_group**// -->
+                <div class="form-group col-md-4 col-sm-12">
+
+                      <label for="blood_group">Blood Group</label>
+
+
+                      <select 
+                        class="form-control"
+                        id="blood_group"
+                        placeholder="Choose One"
+                        [(ngModel)]="form.blood_group"
+                        #blooad_group="ngModel"
+                        name="blood_group"
+                      >
+      
+                      <option>O+</option>
+                      <option>O-</option>
+      
+                      </select>
+                  
+                </div>
+                
+              <!-- **//Genotype**// -->
+                <div class="form-group col-md-4 col-sm-12">
+
+                    <label for="genotype">Genotype</label>                 
+
+                    <select 
+                      class="form-control"
+                      id="genotype"
+                      placeholder="Choose One"
+                      [(ngModel)]="form.genotype"
+                      #gneotype="ngModel"
+                      name="genotype"
+                    >
+    
+                    <option value="AA" selected>AA</option>
+                    <option value="AS">AS</option>
+                    <option value="SS">SS</option>
+    
+                    </select>
+
+                </div>
+
+              <!-- **//Email**// -->
+                <div class="form-group col-md-4 col-sm-12">
+
+                      <label for="email">E-mail</label>
+      
+                        <input
+                          type="email"
+                          id="email"
+                          placeholder="Your Email"
+                          [(ngModel)]="form.email"
+                          class="form-control"
+                          #email= "ngModel"
+                          name="email"
+                          required
+                          email
+                          />
+                          <span class="text-danger"
+                          *ngIf="(email.touched || f.submitted) && email.errors?.required">
+                            Email is required
+                          </span>
+                      <span class="text-danger" *ngIf="email.touched && email.errors?.email">
+                          Enter a valid email address
+                      </span>
+                </div>
+         
+
+
+                        <!-- **Next of Kin** -->
+                 <div class="col-md-12 text-center">
+                  <h3 >Next of Kin Details</h3>
+                </div>
+                
+                <!-- **//Title**//  -->
+                <div class="form-group col-md-4 col-sm-12">
+
+                  <label for="nktitle">Title</label>
+
+  
+                    <input
+                      type="text"
+                      id="nktitle"
+                      placeholder="Next of Kin Title"
+                      class="form-control"
+                      [(ngModel)]="form.nktitle"
+                      required
+                      name="nktitle"
+                      #nktitle="ngModel"/>
+            
+                </div>
+
+              <!-- **//Surname**// -->
+                <div class="form-group col-md-4 col-sm-12">
+
+                      <label for="nksurname">Surname</label>
+
+                        <input
+                        type="text"
+                        id="nksurname"
+                        placeholder="Next of Kin Surname"
+                        class="form-control"
+                        [(ngModel)]="form.nksurname"
+                        required
+                        name="nksurname"
+                        minlength="3"
+                        maxlength="20"
+                        #nksurname="ngModel"/>
+        
+                </div>
+
+              <!-- **//Firstname**// -->
+                <div class="form-group col-md-4 col-sm-12">
+
+                      <label for="nkfirst_name">Firstname</label>
+
+                        <input
+                        type="text"
+                        id="nkfirst_name"
+                        placeholder="next of Kin Firstname"
+                        class="form-control"
+                        [(ngModel)]="form.nkfirst_name"
+                        required
+                        name="nkfirst_name"
+                        minlength="3"
+                        maxlength="20"
+                        #nkfirst_name="ngModel"/>
+        
+                </div>
+
+                <!-- **//Relationship**// -->
+                <div class="form-group col-md-4 col-sm-12">
+
+                      <label for="relationship">Relationship</label>
+
+                      <select 
+                        class="form-control"
+                        id="relationship"
+                        placeholder="Choose One"
+                        [(ngModel)]="form.relationship"
+                        required
+                        name="relationship"
+                        #relationship="ngModel"
+                      >
+      
+                      <option>Brother</option>
+                      <option>Sister</option>
+                      <option>Aunt</option>
+                      <option>Father</option>
+                      <option>Uncle</option>
+      
+                      </select>
+                  
+                </div>
+
+                <!-- Phone_number -->
+                <div class="form-group col-md-4 col-sm-12">
+
+                    <label for="nkphone_number">Phone Number</label>
+
+                    <div class="input-group">
+                        
+                      <input
+                        type="text"
+                        id="nkphone_number"
+                        placeholder="Next of Kin Phone Number"
+                        class="form-control"
+                        [(ngModel)]="form.nkphone_number"
+                        name="nkphone_number"
+                        required
+                        #nkphone_number="ngModel"/>
+
+                    </div>
+          
+                </div>
+
+                <!-- **//Address**// -->
+                <div class="form-group col-md-4 col-sm-12">
+      
+                      <label for="nkaddress">Address</label>
+
+                      <input
+                      type="text"
+                      id="nkaddress"
+                      placeholder="Next of Kin Address"
+                      class="form-control"
+                      [(ngModel)]="form.nkaddress"
+                      required
+                      name="nkaddress"
+                      #nkaddress="ngModel"/>
+
+
+                </div>
+
+                            <!-- **Institution Details** -->
+                <div class="col-md-12 text-center">
+                  <h3 >Institution Details</h3>
+                </div>
+
+              <!-- **//School Of**// -->
+              <div class="form-group col-md-6 col-sm-12">
+                <label for="school">School</label>
+
+                  <select 
+                  class="form-control"
+                  id="school"
+                  placeholder="Choose One"
+                  [(ngModel)]="form.school"
+                  required
+                  name="blood_group"
+                  #school="ngModel"
+                >
+
+                <option *ngFor="let school of School" >{{school}}</option>
+                </select>
+
+              </div>
+
+              <!-- **//Department**// -->
+              <div class="form-group col-md-6 col-sm-12">
+                <label for="department">Department</label>
+
+                  <select 
+                  class="form-control"
+                  id="department"
+                  placeholder="Choose One"
+                  [(ngModel)]="form.department"
+                  required
+                  name="department"
+                  #department="ngModel"
+                >
+
+                <option *ngFor="let department of Departments" >{{department}}</option>
+
+                </select>
+
+
+              </div>
+
+              <!-- **//Position**// -->
+              <div class="form-group col-md-6 col-sm-12">
+
+                <label for="position">Position</label>
+
+                <select 
+                  class="form-control"
+                  id="position"
+                  placeholder="Choose One"
+                  [(ngModel)]="form.position"
+                  required
+                  name="position"
+                  #position="ngModel"
+                >
+
+                <option *ngFor="let position of Positions" >{{position}}</option>
+
+                </select>
+            
+              </div>
+
+                 <!-- **//Category**// -->
+              <div class="form-group col-md-6 col-sm-12">
+
+                      <label for="category">Category</label>
+
+                      <select 
+                        class="form-control"
+                        id="category"
+                        placeholder="Choose One"
+                        [(ngModel)]="form.category"
+                        required
+                        name="category"
+                        #category="ngModel"
+                      >
+      
+                      <option>Academic Staff</option>
+                      <option>Non Academic Staff</option>
+      
+                      </select>
+                  
+              </div>
+                  <!-- SignUp -->
+              <div class="form-group col-md-12">
+      
+                  <button class="btn btn-primary btn-block" [disabled]="!f.valid">Sign Up</button>
+                  <!-- <button (click)="window.alert('Hello world')">
+                    This is a button
+                   </button> -->
+              </div>
+                  
+              </div>
+       
+            </div>
+      
+          </form>
+
+            <!-- <div class="alert alert-success" *ngIf="isSuccessful">
+
+               Already Registered!
+
+            </div> -->
+
+       </div>
+      
+    </div>
+    
+</div>

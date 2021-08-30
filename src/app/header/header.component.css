@@ -1,0 +1,32 @@
+
+.btn:active,.btn:focus {
+   text-decoration: none;
+   outline:none !important;
+   box-shadow: none !important;
+   border-color: transparent !important;
+}
+
+.navbar-toggler{
+    color:cornsilk;
+    outline:none !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
+}
+
+.navbar-toggler:active,.navbar-toggler:focus{
+    outline:none !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
+}
+
+.navbar{
+    background: #1FAB89 !important;
+}
+
+.navbar-brand{
+    font-family: 'Nanum Myeongjo', serif;
+}
+
+.nav-link{
+    font-family: 'Nanum Myeongjo', serif;
+}

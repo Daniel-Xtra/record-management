@@ -1,0 +1,80 @@
+.card {
+    margin-bottom: 30px;
+    background-color: #fff;
+    color:black;
+    border-radius: 0%;
+}
+.card-1{
+    border-top: 3px solid #1fab89;
+}
+.card-2{
+    margin-bottom: 30px;
+    background-color: #1fab89;
+    color:white;
+}
+/* .card-head{
+    background-color: aqua;
+} */
+.body-1{
+    background-color: #1fab89;
+}
+
+.dirst{
+    margin-top:5px;
+    margin-bottom: 5px; 
+}
+
+h3{
+    text-transform:capitalize;
+}
+
+.progress-bar{
+    background-color: #00695c !important;
+}
+
+li{
+    list-style-type:none;
+}
+
+th{
+    float:right;
+    text-transform: capitalize;
+}
+td{
+    padding-left:10px;
+}
+
+.modal h4,.modal h3{
+    font-family: 'Nanum Myeongjo', serif;
+    color:#1FAB89 ;
+}
+
+input,select{
+    outline:none !important;
+    box-shadow: none !important;
+    border-color: transparent;
+    border-radius: 0%; 
+    background:#f8f9fa;
+    /* padding:10px;
+    padding-left: 20px; */
+    /* font-size: 14px; */
+    box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+}
+
+label{
+    color:#1FAB89 !important;
+    font-weight: bold;
+}
+ 
+input,select:active,input,select:focus{
+    outline:none !important;
+    box-shadow: none !important;
+    border-color: transparent;
+}
+
+input.ng-valid{
+	 border: 1px solid green;
+}
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
