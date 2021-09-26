@@ -72,7 +72,9 @@ export class AuthService {
     return this.currentUserSubject.value;
 
   }
+ 
 
+  
   login(credentials) {
 
       return this.http.post<AuthData>(AUTH_API + 'signin', {
@@ -188,39 +190,39 @@ export class AuthService {
     },httpOptions)
   }
 
-//   autoLogin() {
+  autoLogin() {
 
-//     const expires = JSON.parse(sessionStorage.getItem('expiresIn'))
+    const expires = JSON.parse(sessionStorage.getItem('expiresIn'))
 
-//     if (!expires) {
+    if (!expires) {
 
-//       return;
+      return;
       
-//     }
+    }
 
-//       if (expires) {
+      if (expires) {
 
-//         this.currentUserSubject.next(expires);
+        // this.currentUserSubject.next(expires);
   
-//         const now = new Date(expires).getMinutes() -  new Date().getMinutes();
+        const now = new Date(expires).getMinutes() -  new Date().getMinutes();
   
-//         this.autoLogout(now * 60 * 1000);
+        this.autoLogout(now * 60 * 1000);
    
-//       }
-// // 
-//   }
+      }
+// 
+  }
 
-  // autoLogout(now:number) {
+  autoLogout(now:number) {
 
-  //   console.log(now)
+    console.log(now)
 
-  //  setTimeout(() => {
+   setTimeout(() => {
 
-  //     this.logout();
+      this.logout();
 
-  //   },now);
+    },now);
 
-  // }
+  }
 
   logout() {
     

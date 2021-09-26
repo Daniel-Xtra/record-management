@@ -1,157 +1,83 @@
-
-<div class="container mt-4">
-
+<div class="container">
   <div class="row">
+    <div class="profile-nav col-md-3">
+        <div class="panel">
+            <div class="user-heading round d-flex">
+                <a >
+                    <img [src]=pics alt="" class="responsive"
+                    >
+                </a>
+                <div style="height: 0px;overflow: hidden;">
+                  <input type="file" id="fileInput"  (change)="selectFile($event)" (change)="upload()">
+                </div>
+                <figure><i class="fa fa-camera" (click)="choose()"></i></figure>
+                <!-- <h1>{{profile.username}}</h1>
+                <p>{{profile.email}}</p> -->
+            </div>
+  
+            <ul class="nav nav-pills nav-stacked" style="display: inline-block;">
+                <li routerLinkActive="active"><a  (click)="myProfile(username)"> <i class="fa fa-user"></i> Profile</a></li><br>
+                <li routerLinkActive="active"><a data-toggle="modal" data-target="#ModalCenter" (click)="myProfile(username)"> <i class="fa fa-edit"></i> Edit profile</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="profile-info col-md-9">
 
-      <div class="col-md-6">
-
-       <div class="row">
-
-           <div class="col-md-12">
-              <div class="card card-1">
-                  <div class="card-body">
-                      <h3>personnal information</h3>
-                      <table class="table-responsive">
-                          <tr>
-                              <th>Title</th>
-                              <td>{{profile.data.title}}</td>
-                          </tr>
-                          <tr>
-                              <th>Surname</th>
-                              <td>{{profile.data.surname}}</td>
-                          </tr>
-                          <tr>
-                              <th>Firstname</th>
-                              <td>{{profile.data.first_name}}</td>
-                          </tr>
-                          <tr>
-                              <th>Othername</th>
-                              <td>{{profile.data.other_name}}</td>
-                          </tr>
-                          <tr>
-                              <th>Date_of_birth</th>
-                              <td>{{profile.data.date_of_birth}}</td>
-                          </tr>
-                          <tr>
-                              <th>Religion</th>
-                              <td>{{profile.data.religion}}</td>
-                          </tr>
-                          <tr>
-                              <th>Marital Status</th>
-                              <td>{{profile.data.marital_status}}</td>
-                          </tr>
-                          <!-- <tr>
-                              <th>Phone</th>
-                              <td>{{profile.data.phone_number}}</td>
-                          </tr> -->
-                          <!-- <tr>
-                              <th>Email</th>
-                              <td>{{profile.data.email}}</td>
-                          </tr> -->
-                          <tr>
-                              <th>Nationality</th>
-                              <td>{{profile.data.nationality}}</td>
-                          </tr>
-                      </table>             
+        <div class="panel">
+            <div class="bio-graph-heading">
+                Aliquam ac magna metus. Nam sed arcu non tellus fringilla fringilla ut vel ispum. Aliquam ac magna metus.
+            </div>
+            <div class="panel-body bio-graph-info">
+                <h1>Bio Graph</h1>
+                <div class="row">
+                    <div class="bio-row">
+                        <p><span>Surname </span>: {{profile.surname}}</p>
                     </div>
-              </div>
-           </div>
-
-
-           <div class="col-md-12">
-              <div class="card card-2">
-                  <div class="card-body">
-                      <h3>education</h3>
-                      <h4>MBA, OXFORD UNIVERSITY <span class="pull-right">two</span></h4>
-                      <p>2011 to 2016</p>
-                      <h4>MBA, OXFORD UNIVERSITY <span class="pull-right">two</span></h4>
-                      <p>2011 to 2016</p>
-                  </div>
-              </div>
-          </div>
-
-       </div>
-
-      </div>
-
-     <div class="col-md-6">
-         <div class="row">
-              <div class="col-md-12">
-                  <div class="card card-2">
-                      <div class="card-body">
-                          <h3>current position</h3>
-                      <table>
-                          <tr>
-                              <th>school</th>
-                              <td>profile.data.school</td>
-                          </tr>
-                              <tr>
-                              <th>department</th>
-                              <td>profile.data.department</td>
-                          </tr>
-                              <tr>
-                              <th>position</th>
-                              <td>{{profile.data.position}}</td>
-                          </tr>
-                              <tr>
-                              <th>category</th>
-                              <td>profile.data.category</td>
-                          </tr>
-                      </table>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-12">
-                  <div class="card card-1">
-                      <div class="card-body">
-                          <h3>contacts</h3>
-                          <table>
-                              <tr>
-                                  <th><i class="fa fa-user"></i></th>
-                                  <td>{{profile.data.address}}</td>
-                              </tr>
-                              <tr>
-                                  <th><i class="fa fa-phone"></i></th>
-                                  <td>{{profile.data.phone_number}}</td>
-                              </tr>
-                              <tr>
-                                  <th><i class="fa fa-envelope"></i></th>
-                                  <td>{{profile.data.email}}</td>
-                              </tr>
-                          </table>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-12">
-                  <div class="card">
-                      <div class="card-body card-1">
-                          <h3>employee identity</h3>
-                      </div>
-                      <div class="card-body" style="background:#1fab89; color: white;">
-                          <table>
-                              <tr>
-                                  <th>Bank Name</th>
-                                  <td>8938373848586</td>
-                              </tr>
-                              <tr>
-                                  <th>Account Name</th>
-                                  <td>8938373848586</td>
-                              </tr>
-                              <tr>
-                                  <th>Account Number</th>
-                                  <td>8938373848586</td>
-                              </tr>
-                          </table>
-                      </div>
-                  </div>
-              </div>
-         </div>
-     </div>
-
+                    <div class="bio-row">
+                        <p><span>First Name </span>: {{profile.first_name}}</p>
+                    </div>
+                    <div class="bio-row">
+                      <p><span>Other Name </span>: {{profile.other_name}}</p>
+                    </div>
+                    <div class="bio-row">
+                        <p><span>Country </span>: {{profile.nationality}}</p>
+                    </div>
+                    <div class="bio-row">
+                        <p><span>Birthday</span>: {{profile.date_of_birth}}</p>
+                    </div>
+                    <div class="bio-row">
+                        <p><span>Email </span>: {{profile.email}}</p>
+                    </div>
+                    <div class="bio-row">
+                        <p><span>Gender </span>: {{profile.gender}}</p>
+                    </div>
+                    <div class="bio-row">
+                        <p><span>Phone </span>: {{profile.phone_number}}</p>
+                    </div>
+                    <div class="bio-row">
+                      <p><span>Marital Status</span>: {{profile.marital_status}}</p>
+                    </div>
+                    <div class="bio-row">
+                      <p><span>Blood Group</span>: {{profile.blood_group}}</p>
+                    </div>
+                    <div class="bio-row">
+                      <p><span>Genotype</span>: {{profile.genotype}}</p>
+                    </div>
+                    <div class="bio-row">
+                      <p><span>State</span>: {{profile.state}}</p>
+                    </div>
+                    <div class="bio-row">
+                      <p><span>Local Govt</span>: {{profile.local_govt}}</p>
+                    </div>
+                    <div class="bio-row">
+                      <p><span>Address</span>: {{profile.address}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
   </div>
-
-</div>
-
+  </div>
 
 <div class="col-md-8  offset-md-2">
     <div class="modal fade" #ModalCenter id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenter" aria-hidden="true" data-backdrop="static">
@@ -539,6 +465,6 @@
 </div>
 
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalCenter" (click)="myProfile(username)">
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalCenter" (click)="myProfile(username)">
     Launch demo modal
-  </button>
+  </button> -->

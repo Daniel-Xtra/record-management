@@ -11,7 +11,7 @@
         <div class="card-body">
           <div class="row ">
             <div class="col mr-2">
-              <a [routerLink]="['/login',{outlets:{'admin':['adminLogin']}}]" (click)="admin()" *ngIf="showAdmin" >Admin Login</a>
+              <a routerLink="/adminLogin" >Admin Login</a>
             </div>
             <div class="col">
               <i class="fa fa-user fa-2x" style="float: right;"></i>
@@ -26,8 +26,7 @@
         <div class="card-body">
           <div class="row">
             <div class="col mr-2">
-              <a  [routerLink]="['/login',{outlets:{'user':['userLogin']}}]" 
-              (click)="user()" *ngIf="showUser">User Login</a>
+              <a  routerLink="/userLogin">User Login</a>
             </div>
             <div class="col ">
               <i class="fa fa-user fa-2x"></i>
@@ -59,6 +58,6 @@
   </div>
 
 </div>    -->
-<router-outlet name="user" *ngIf="userShow"></router-outlet>
-<router-outlet name="admin" *ngIf="adminShow"></router-outlet>
-<!-- <router-outlet></router-outlet> -->
+<!-- <router-outlet name="user" *ngIf="userShow"></router-outlet>
+<router-outlet name="admin" *ngIf="adminShow"></router-outlet> -->
+<router-outlet></router-outlet>

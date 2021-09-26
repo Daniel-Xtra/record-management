@@ -1,4 +1,5 @@
 import { Component,OnInit } from '@angular/core';
+import { AuthService } from './services/auth.service';
 
 
 
@@ -12,7 +13,7 @@ export class AppComponent implements OnInit{
   name = "Angular";
   isLoading = true
  
-  constructor() {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit() {
 
@@ -21,8 +22,9 @@ export class AppComponent implements OnInit{
       this.isLoading = false
 
     },2000)  
+    
 
-    // this.ss.startSocket()
+    // this.authService.autoLogin()
 
   }
   

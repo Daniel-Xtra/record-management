@@ -17,7 +17,7 @@ export class AuthenticateGuard implements CanActivate,CanActivateChild {
 
     canActivate(route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot){
-        const currentUser = this.authService.currentUserValue;
+        const currentUser = this.authService.currentUserValue
         if(currentUser){
             if(route.data.membership_type && route.data.membership_type.indexOf(currentUser.data.user.membership_type) === -1){
                 this.router.navigate(['/profile']);

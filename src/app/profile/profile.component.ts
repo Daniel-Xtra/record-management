@@ -4,13 +4,14 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AlertService } from '../alert/alert.service';
 import { AuthService } from '../services/auth.service';
 import { Profile } from './profile.model'
+import { Observable } from 'rxjs';
 
 
 
 const API = "http://localhost:5000/api/v1/profiles/";
 
 declare var jQuery:any;
-
+const baseUrl = "http://localhost:5000/api/v1/profiles";
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -23,7 +24,12 @@ export class ProfileComponent implements OnInit {
   username = this.authService.getUsername();
   fieldTextType:Boolean;
   window = window;
-
+  pics :any;
+  photo:any
+  selectedFiles: FileList;
+  currentFile: File;
+  progress = 0;
+  message = '';
 
   States = ['Abia', 'Adamawa', 'Akwa Ibom', 'Anambra','Bauchi','Bayelsa','Benue','Borno','Cross River','Delta','Ebonyi','Edo',
             'Ekiti','Enugu','Gombe','Imo','Jigawa','Kaduna','Kano','Kastina','Kebbi','Kogi','Kwara','Lagos',
@@ -56,7 +62,9 @@ export class ProfileComponent implements OnInit {
   
     return this.http.get(API + username).subscribe(
       (data:Profile) => {
-        this.profile = data
+        this.profile = data.data
+       this.pics = data.data.profile_picture_url
+    
         this.reactiveForm.patchValue(data.data)
         
       },
@@ -65,6 +73,14 @@ export class ProfileComponent implements OnInit {
       },
     );
   };
+  
+  myerr(){
+    
+
+var myImg = document.getElementById('pic') as HTMLImageElement;
+myImg.src = "https://th.bing.com/th/id/R.0ec1db2b2308470caeecc6e9f1fe0a2b?rik=V8Ohx1lYJzYTiA&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_208097.png&ehk=B%2faYHX4oMo045E3JXWgtucQBG4azrpIH9rwyaY8y5tc%3d&risl=&pid=ImgRaw&r=0";
+
+  }
 
   profileEdit(){
    return this.authService.editProfile(this.reactiveForm.value).subscribe(
@@ -90,7 +106,9 @@ export class ProfileComponent implements OnInit {
   //   )
   // }
 
-
+	selectFile(event): void {
+		this.selectedFiles = event.target.files;
+	}
   reactiveForm = new FormGroup({
     title: new FormControl(),
     username: new FormControl(),
@@ -126,6 +144,33 @@ export class ProfileComponent implements OnInit {
     this.reactiveForm.reset()
   };
 
+  choose(){
+		document.getElementById('fileInput').click();
+	}
+  	uploadImage(file:File): Observable<any>{
+	const formData: FormData = new FormData();
+	formData.append('photo', file);
+	 return  this.http.post(baseUrl + '/upload', formData)
+	  
+	}
+	upload(){
+		this.currentFile = this.selectedFiles.item(0);
+		this.uploadImage(this.currentFile).subscribe(
+			event => {
+						
+							
+						  this.message = 'Photo upload Successfull!!!'
+				
+					  },
+					  err => {
+			
+						this.message = 'Could not upload the photo!';
+						this.currentFile = undefined;
+					  });
+					this.selectedFiles = undefined;
+		
+		
+	}
   
 }
 

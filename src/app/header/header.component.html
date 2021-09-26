@@ -14,7 +14,7 @@
 
              <li class="nav-item" *ngIf="isAdmin()">
 
-                 <a class="nav-link" routerLink="/home">Dashboard</a>
+                 <a class="nav-link" routerLink="/home" routerLinkActive="active">Dashboard</a>
 
              </li>
           
@@ -22,8 +22,8 @@
      
                 <a class="nav-link dropdown-toggle" id="personnel" role="button" data-toggle="dropdown">Personnel</a>
                 <div class="dropdown-menu" aria-labelledby="personnel">
-                    <a class="dropdown-item" routerLink="/addEmployee">Add Employee</a>
-                    <a class="dropdown-item" routerLink="/listEmployee">List Employee</a>
+                    <a class="dropdown-item" routerLink="/addEmployee" routerLinkActive="active">Add Employee</a>
+                    <a class="dropdown-item" routerLink="/listEmployee" routerLinkActive="active">List Employee</a>
                   </div>
             </li>
 
@@ -31,13 +31,13 @@
      
                 <a class="nav-link dropdown-toggle" id="manage" role="button" data-toggle="dropdown">Manage Account</a>
                 <div class="dropdown-menu" aria-labelledby="manage">
-                    <a class="dropdown-item" routerLink="/biodata">Biodata</a>
-                    <a class="dropdown-item" routerLink="/edit">Edit Data</a>
-                    <a class="dropdown-item" routerLink="/changePassword">Change Password</a>
+                    <a class="dropdown-item" routerLink="/biodata" routerLinkActive="active">Biodata</a>
+                    <a class="dropdown-item" routerLink="/edit" routerLinkActive="actvie">Edit Data</a>
+                    <a class="dropdown-item" routerLink="/changePassword" routerLinkActive="active">Change Password</a>
                   </div>
             </li>
             <li class="nav-item dropdown">
-                <a  routerLink="/profile" class="nav-link " >Profile</a>
+                <a  routerLink="/profile" class="nav-link" routerLinkActive="active" >Profile</a>
                  
             </li>
 

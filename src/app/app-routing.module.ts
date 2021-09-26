@@ -28,14 +28,20 @@ const appRoutes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
 
 
-  { path: 'login', component: LoginComponent,children:[
+
+  // { path: 'login', component: LoginComponent,children:[
     
-    { path: 'userLogin',component: UserLoginComponent,outlet:'user'},
+  //   { path: 'userLogin',component: UserLoginComponent,outlet:'user'},
 
-    { path: 'adminLogin', component: AdminLoginComponent,outlet:'admin'},
+  //   { path: 'adminLogin', component: AdminLoginComponent,outlet:'admin'},
 
-  ]},
+  // ]},
+  { path: 'login', component:LoginComponent},
 
+  { path: 'adminLogin', component: AdminLoginComponent},
+
+  { path: 'userLogin',component: UserLoginComponent},
+  
   { path: 'home', component: HomeComponent,data:{membership_type:[Role.admin]},canActivate:[AuthenticateGuard]},
 
   { path: 'edit', component: EditDataComponent},

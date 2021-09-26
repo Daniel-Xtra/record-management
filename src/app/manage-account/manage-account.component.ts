@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 
-declare var jQuery:any ;
-
 @Component({
   selector: 'app-manage-account',
   templateUrl: './manage-account.component.html',
@@ -13,9 +11,7 @@ export class ManageAccountComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    jQuery(document).ready(function() {
-      jQuery('#example').DataTable();
-      } ); 
+
   }
 
 }
